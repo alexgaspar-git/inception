@@ -10,14 +10,14 @@ RUN apt-get update && apt-get install -y \
     php7.3-mbstring \
     php7.3-zip \
     mariadb-client \
-    wget
+    wget \
+    curl
 
 RUN mkdir -p /var/www/html
 
-RUN wget -O /tmp/latest.tar.gz https://wordpress.org/latest.tar.gz \
-    && tar xfz /tmp/latest.tar.gz -C /var/www/html
-
-RUN cp -R /var/www/html/wordpress/. /var/www/html/
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
 
 COPY tools/init.sh /tmp/init.sh
 RUN chmod +x /tmp/init.sh
@@ -30,7 +30,9 @@ RUN mkdir -p /run/php \
     && chown www-data:www-data /run/php \
     && chown -R www-data:www-data /var/www/html
 
-WORKDIR /var/www/html/wordpress
+WORKDIR /var/www/html/
+
+RUN wp core download --allow-root
 
 EXPOSE 9000
 

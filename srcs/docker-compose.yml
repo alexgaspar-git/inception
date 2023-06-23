@@ -5,13 +5,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/jefe/data/mariadb
+      device: /home/algaspar/data/mariadb
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/jefe/data/wordpress
+      device: /home/algaspar/data/wordpress
       o: bind
 
 networks:

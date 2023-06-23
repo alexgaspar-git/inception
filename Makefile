@@ -1,8 +1,13 @@
-all:
-	docker compose -f ./srcs/docker-compose.yml build
+up:
 	docker compose -f ./srcs/docker-compose.yml up --detach
 
-clean:
+down:
+	docker compose -f ./srcs/docker-compose.yml down
+
+stop:
+	docker compose -f ./srcs/docker-compose.yml stop
+
+nuke:
 	docker compose -f ./srcs/docker-compose.yml down
 	docker rmi srcs-mariadb
 	docker rmi srcs-nginx

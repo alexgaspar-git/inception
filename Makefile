@@ -1,4 +1,6 @@
 up:
+	mkdir -p /home/algaspar/data/wp
+	mkdir -p /home/algaspar/data/db
 	docker compose -f ./srcs/docker-compose.yml up --detach
 
 down:
@@ -14,5 +16,5 @@ nuke:
 	docker rmi srcs-wordpress
 	docker volume rm srcs_mariadb_data
 	docker volume rm srcs_wordpress_data
-	sudo rm -rf ../data/mariadb/*
-	sudo rm -rf ../data/wordpress/*
+	sudo rm -rf /home/algaspar/data/mariadb/*
+	sudo rm -rf /home/algaspar/data/wordpress/*

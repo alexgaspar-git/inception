@@ -21,7 +21,7 @@ if ! wp core is-installed --allow-root; then
 	
 	wp user create $WORDPRESS_USER \
 					$WORDPRESS_USER_EMAIL \
-					--role=editor\
+					--role=editor \
 					--user_pass=$WORDPRESS_USER_PASSWORD \
 					--allow-root
 	

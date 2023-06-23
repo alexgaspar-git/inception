@@ -1,6 +1,6 @@
 up:
-	mkdir -p /home/algaspar/data/wp
-	mkdir -p /home/algaspar/data/db
+	mkdir -p /home/algaspar/data/wordpress
+	mkdir -p /home/algaspar/data/mariadb
 	docker compose -f ./srcs/docker-compose.yml up --detach
 
 down:

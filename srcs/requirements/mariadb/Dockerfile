@@ -10,7 +10,8 @@ COPY conf/my.cnf /etc/mysql/my.cnf
 COPY tools/create_db.sql /tools/create_db.sql
 COPY tools/entrypoint.sh /tools/entrypoint.sh
 
-RUN chmod +r /tools/create_db.sql
+RUN chmod 777 /tools/create_db.sql
+RUN chmod 777 /tools/entrypoint.sh
 RUN chown -R mysql:mysql /var/lib/mysql
 RUN mkdir -p /var/run/mysqld \
     && chown -R mysql:mysql /var/run/mysqld \
